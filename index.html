@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/x-icon" href="logo1.png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jesh | Graphic & Thumbnail Designer</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+    html {
+    scroll-behavior: smooth;
+}
+/* Base Styles */
+:root {
+--primary-color: #2D46B9;
+--secondary-color: #00D9C0;
+--accent-color: #8C52FF;
+--dark-color: #121212;
+--light-color: #ffffff;
+--gray-color: #8892b0;
+}
+
+* {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: var(--dark-color);
+        color: var(--light-color);
+        line-height: 1.6;
+    }
+    
+    h1, h2, h3, h4 {
+        font-family: 'Outfit', sans-serif;
+        font-weight: 700;
+    }
+    
+    .highlight {
+        color: var(--secondary-color);
+    }
+    
+    .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    
+    a {
+        color: var(--light-color);
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+    
+    a:hover {
+        color: var(--secondary-color);
+    }
+    
+    .btn {
+        display: inline-block;
+        padding: 10px 25px;
+        background-color: var(--secondary-color);
+        color: var(--dark-color);
+        border: none;
+        border-radius: 5px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .section {
+        padding: 60px 0;
+    }
+    
+    .section-title {
+        font-size: 32px;
+        margin-bottom: 40px;
+        text-align: center;
+        position: relative;
+    }
+    
+    .section-title::after {
+        content: '';
+        position: absolute;
+        width: 60px;
+        height: 3px;
+        background-color: var(--secondary-color);
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    /* Header */
+    header {
+        padding: 20px 0;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        background-color: rgba(18, 18, 18, 0.9);
+    }
+    
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .logo {
+        font-family: 'Outfit', sans-serif;
+        font-size: 28px;
+        font-weight: 900;
+        color: var(--secondary-color);
+    }
+    
+    .nav-links {
+        display: flex;
+        gap: 30px;
+    }
+    
+    /* Hero Section */
+    .hero {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        padding-top: 60px;
+    }
+    
+    .hero-content {
+        max-width: 700px;
+    }
+    
+    .hero h1 {
+        font-size: 50px;
+        margin-bottom: 20px;
+    }
+    
+    /* Portfolio Grid with YouTube Sizing */
+    .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 25px;
+    }
+    
+    .project-card {
+        background-color: rgba(45, 70, 185, 0.1);
+        border-radius: 10px;
+        overflow: hidden;
+        border: 1px solid rgba(45, 70, 185, 0.3);
+    }
+    .project-card {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 217, 192, 0.2);
+    border-color: var(--secondary-color);
+}
+    
+    .project-image {
+        width: 100%;
+        /* This forces the 16:9 YouTube Thumbnail ratio */
+        aspect-ratio: 16 / 9; 
+        background-color: #2a2a2a;
+        overflow: hidden;
+    }
+
+    .project-image123{
+        width:100%;
+        aspect-ratio: 4 / 4  ;
+        background-color: #0a0a0a;
+        overflow: hidden;
+        transform: none;
+    }
+
+    .project-card :hover{
+       cursor: pointer;
+       box-shadow:20px, 10px, white;
+    }
+
+    .project-image123 img {
+        width: 100%;
+        height: 100%;
+        /* This ensures images don't stretch; they fill the area like a background */
+        object-fit: cover; 
+    }
+
+    .project-image img {
+        width: 100%;
+        height: 100%;
+        /* This ensures images don't stretch; they fill the area like a background */
+        object-fit: cover; 
+    }
+    
+    .project-details {
+        padding: 15px;
+    }
+    
+    .project-title {
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+    
+    .tag {
+        background-color: rgba(0, 217, 192, 0.1);
+        color: var(--secondary-color);
+        padding: 2px 10px;
+        border-radius: 50px;
+        font-size: 11px;
+    }
+
+    /* Standard Contact Styles */
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        background-color: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 5px;
+        color: var(--light-color);
+        margin-bottom: 15px;
+    }
+    
+    footer {
+        padding: 40px 0;
+        text-align: center;
+        background: #0a0a0a;
+    }
+
+    @media (max-width: 768px) {
+        .nav-links { display: none; }
+        .hero h1 { font-size: 35px; }
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <nav>
+            <div class="logo">JESH</div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#projects">Portfolio</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<section id="home" class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-subtitle highlight">Graphic & Thumbnail Designer</div>
+            <h1>High-Impact <span class="highlight">Visuals</span> for Creators</h1>
+            <p>Optimized YouTube thumbnails and professional branding designed to drive engagement.</p>
+        </div>
+    </div>
+</section>
+
+</div></section><section id="about" class="section">
+    <div class="container">
+        <h2 class="section-title">About <span class="highlight">Me</span></h2>
+        <div class="about-content">
+            <div class="about-image">
+                
+            </div>
+            <div class="about-text">
+                <h3>Graphic & <span class="highlight">Thumbnail Designer</span></h3>
+                <p>hey i am jesh and I'm a designer with a passion for creating visually appealing and high-converting digital artwork. My journey began with a fascination for  branding, and visual storytelling.</p>
+                <p>With a strong foundation in visual layout and an eye for design, I specialize in creating graphics that are not only eye-catching but also drive clicks and engagement.</p>
+                <p>When I'm not designing, you can find me exploring new design trends and analyzing engagement strategies.</p>
+            </div>
+        </div>
+
+<section id="projects" class="section">
+    <div class="container">
+        <h2 class="section-title">My <span class="highlight">Portfolio</span></h2>
+        <div class="projects-grid">
+            
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="work/6 ወር crf.png" alt="Thumbnail 1">
+                </div>
+                <div class="project-details">
+                    <h3 class="project-title">YouTube Thumbnail for  ETHIO-COMPUTER-SCHOOL</h3>
+                    <span class="tag">CTR THUMBNAIL</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="work/guzo green coast crf.jpg" alt="Thumbnail 2">
+                </div>
+                <div class="project-details">
+                    <h3 class="project-title">YouTube Thumbnail for BACKEYS-TRAVEL</h3>
+                    <span class="tag">CTR THUMBNAIL</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image"><img src="work/mekfel gemere crf.png" alt="Work"></div>
+                <div class="project-details"><h3 class="project-title">YouTube Thumbnail for ETHIO-COMPUTER-SCHOOL</h3><span class="tag">CTR THUMBNAIL</span></div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image"><img src="work/feril thumb 1 crf 2.png" alt="Work"></div>
+                <div class="project-details"><h3 class="project-title">YouTube Thumbnail for FERIL-MAD-WORLD</h3><span class="tag">CTR THUMBNAIL</span></div>
+            </div>
+
+            <div class="project-card">t
+                <div class="project-image"><img src="work/lela tikusat crf.png" alt="Work"></div>
+                <div class="project-details"><h3 class="project-title">PODCAST-thumbnail</h3><span class="tag">CTR THUMBNAIL</span></div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image"><img src="work/FERIL.png" alt="Work"></div>
+                <div class="project-details"><h3 class="project-title">YouTube Thumbnail for FERIL-MAD-WORLD</h3><span class="tag">CTR THUMBNAIL</span></div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image"><img src="work/2nd feril project sttg crf.jpg" alt="Work"></div>
+                <div class="project-details"><h3 class="project-title">YouTube Thumbnail for FERIL-MAD-WORLD</h3><span class="tag">CTR THUMBNAIL</span></div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image"><img src="work/tegbarhiwotblur new.png" alt="Work"></div>
+                <div class="project-details"><h3 class="project-title">YouTube Thumbnail for ALATU-LAY channel</h3><span class="tag">CTR THUMBNAIL</span></div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image"><img src="work/final food challenge thumbnail crf.jpg" alt="Work"></div>
+                <div class="project-details"><h3 class="project-title">YouTube Thumbnail for FERIL-MAD-WORLD</h3><span class="tag">CTR THUMBNAIL</span></div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image"><img src="work/mehal sefari 33.png" alt="Work"></div>
+                <div class="project-details"><h3 class="project-title">YouTube Thumbnail for ALATU-LAY channel</h3><span class="tag">CTR THUMBNAIL</span></div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image"><img src="work/temari work crf.png" alt="Work"></div>
+                <div class="project-details"><h3 class="project-title">youTube Thumbnail YONAS-MOH</h3><span class="tag">CTR THUMBNAIL</span></div>
+            </div>
+
+             <div class="project-card">
+                <div class="project-image"><img src="work/IMG_20251130_103434_918.png" alt="Work"></div>
+                <div class="project-details"><h3 class="project-title">youTube Thumbnail for ALATU-lay channel</h3><span class="tag">CTR THUMBNAIL</span></div>
+            </div>
+
+             <div class="project-card">
+                <div class="project-image"><img src="work/DELALA 2.jpg" alt="Work"></div>
+                <div class="project-details"><h3 class="project-title">youTube Thumbnail for HUHU-MEDIA</h3><span class="tag">CTR THUMBNAIL</span></div>
+            </div>
+
+             <div class="project-card">
+                <div class="project-image"><img src="work/ናቲ thum.jpg" alt="Work"></div>
+                <div class="project-details"><h3 class="project-title">youTube Thumbnail for NATI</h3><span class="tag">CTR THUMBNAIL</span></div>
+            </div>
+
+             <div class="project-card">
+                <div class="project-image"><img src="work/moh 1.jpg" alt="Work"></div>
+                <div class="project-details"><h3 class="project-title">youTube Thumbnail for YONAS MOH</h3><span class="tag">CTR THUMBNAIL</span></div>
+            </div>
+
+             <div class="project-card">
+                <div class="project-image"><img src="work/jara ad.png" alt="Work"></div>
+                <div class="project-details"><h3 class="project-title">PODCAST Thumbnail for JARA AND JERUKA</h3><span class="tag">CTR THUMBNAIL</span></div>
+            </div>
+
+             <div class="project-card">
+                <div class="project-image"><img src="work/donald fin.jpg" alt="Work"></div>
+                <div class="project-details"><h3 class="project-title">BUSINESS Thumbnail</h3><span class="tag">CTR THUMBNAIL</span></div>
+            </div>
+
+             <div class="project-card">
+                <div class="project-image"><img src="work/battle.jpg" alt="Work"></div>
+                <div class="project-details"><h3 class="project-title">BOXING-Thumbnail </h3><span class="tag">CTR THUMBNAIL</span></div>
+            </div>
+
+             <div class="project-card">
+                <div class="project-image"><img src="work/big 1.jpg" alt="Work"></div>
+                <div class="project-details"><h3 class="project-title">youTube Thumbnail for BIG-HABESHA</h3><span class="tag">CTR THUMBNAIL</span></div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image"><img src="work/tidar 3.jpg" alt="Work"></div>
+                <div class="project-details"><h3 class="project-title">youTube Thumbnail for alatu lay channel</h3><span class="tag">CTR THUMBNAIL</span></div>
+            </div>
+
+              <div class="project-card">
+                <div class="project-image"><img src="work/china.jpg" alt="Work"></div>
+                <div class="project-details"><h3 class="project-title">NEWS-Thumbnail </h3><span class="tag">CTR THUMBNAIL</span></div>
+            </div>
+
+              <div class="project-card">
+                <div class="project-image"><img src="work/yhuda 21.jpg" alt="Work"></div>
+                <div class="project-details"><h3 class="project-title">youTube Thumbnail for alatu lay channel</h3><span class="tag">CTR THUMBNAIL</span></div>
+            </div>
+
+            
+
+
+
+
+
+
+
+
+
+
+        </div>
+    </div>
+</section>
+
+<section id="projects" class="section">
+    <div class="container">
+        <h2 class="section-title">for  <span class="highlight">digital work</span></h2>
+        <div class="projects-grid">
+
+             <div class="project-card">
+                <div class="project-image123"><img src="work/lamberet-project.jpg" alt="Work"></div>
+                <div class="project-details"><h3 class="project-title">promotion-works</h3><span class="tag">CTR THUMBNAIL</span></div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image123"><img src="work/salon 6.jpg" alt="Work"></div>
+                <div class="project-details"><h3 class="project-title">promotion-works</h3><span class="tag">CTR THUMBNAIL</span></div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image123"><img src="work/YABU MENU 2.jpg" alt="Work"></div>
+                <div class="project-details"><h3 class="project-title">promotion-works</h3><span class="tag">CTR THUMBNAIL</span></div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image123"><img src="work/dagi.jpg" alt="Work"></div>
+                <div class="project-details"><h3 class="project-title">promotion-works for podcast</h3><span class="tag">CTR THUMBNAIL</span></div>
+            </div>
+
+             <div class="project-card">
+                <div class="project-image123"><img src="work/NESHI SHOP1.jpg" alt="Work"></div>
+                <div class="project-details"><h3 class="project-title">promotion-works</h3><span class="tag">CTR THUMBNAIL</span></div>
+            </div>
+     </div>       
+</section>
+</div></section><section id="contact" class="section">
+    <div class="container">
+        <h2 class="section-title">Get In <span class="highlight">Touch</span></h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Email</h3>
+                        <a href="mailto:jesh@example.com">yishrunlegesse@gmail.com</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Phone</h3>
+                        <p>+251975335963</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Location</h3>
+                        <p>addis abeba, ethiopia</p>
+                    </div>
+                </div>
+            </div>
+
+<section id="contact" class="section">
+    <div class="container">
+        <h2 class="section-title">Let's <span class="highlight">Work</span></h2>
+        <form style="max-width: 600px; margin: 0 auto;" action="https://formspree.io/f/maqalkzz" method="POST">
+            
+            <input type="hidden" name="_next" value="https://yishrun286.github.io/My-Portfolio/thankyou.html">
+
+            <input type="text" name="name" class="form-control" placeholder="Name" required>
+            
+            <input type="email" name="email" class="form-control" placeholder="Email" required>
+            
+            <textarea name="message" class="form-control" rows="5" placeholder="Your Project Details" required></textarea>
+            
+            <button type="submit" class="btn" style="width: 100%;">Send Request</button>
+        </form>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2026 Jesh Projects. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
