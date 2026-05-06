@@ -1,549 +1,643 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="icon" type="image/x-icon" href="logo1.png">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jesh | Graphic & Thumbnail Designer</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
-<style>
-    html {
-    scroll-behavior: smooth;
-}
-/* Base Styles */
-:root {
---primary-color: #2D46B9;
---secondary-color: #00D9C0;
---accent-color: #8C52FF;
---dark-color: #121212;
---light-color: #ffffff;
---gray-color: #8892b0;
-}
+  <link rel="icon" type="image/x-icon" href="logo1.png">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jesh Projects | YouTube Thumbnail Designer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    :root{
+      --gold:#C9A84C;
+      --gold-light:#E8C97A;
+      --gold-dim:#7A6230;
+      --black:#0A0A0A;
+      --surface:#111111;
+      --surface2:#1A1A1A;
+      --surface3:#222222;
+      --text:#F0EDE6;
+      --text-muted:#888580;
+      --border:rgba(201,168,76,0.18);
+    }
+    html{scroll-behavior:smooth;}
+    body{background:var(--black);color:var(--text);font-family:'Outfit',sans-serif;overflow-x:hidden;}
 
-* {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+    /* FLOATING TELEGRAM */
+    .tg-floating{
+      position:fixed;bottom:25px;right:25px;width:58px;height:58px;
+      background:#0088cc;color:white;border-radius:50%;display:flex;
+      align-items:center;justify-content:center;font-size:24px;
+      z-index:9999;box-shadow:0 5px 20px rgba(0,136,204,0.4);transition:0.3s;
+      text-decoration:none;
     }
-    
-    body {
-        font-family: 'Poppins', sans-serif;
-        background-color: var(--dark-color);
-        color: var(--light-color);
-        line-height: 1.6;
-    }
-    
-    h1, h2, h3, h4 {
-        font-family: 'Outfit', sans-serif;
-        font-weight: 700;
-    }
-    
-    .highlight {
-        color: var(--secondary-color);
-    }
-    
-    .container {
-        max-width: 1100px;
-        margin: 0 auto;
-        padding: 0 20px;
-    }
-    
-    a {
-        color: var(--light-color);
-        text-decoration: none;
-        transition: color 0.3s ease;
-    }
-    
-    a:hover {
-        color: var(--secondary-color);
-    }
-    
-    .btn {
-        display: inline-block;
-        padding: 10px 25px;
-        background-color: var(--secondary-color);
-        color: var(--dark-color);
-        border: none;
-        border-radius: 5px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.3s ease;
-    }
-    
-    .section {
-        padding: 60px 0;
-    }
-    
-    .section-title {
-        font-size: 32px;
-        margin-bottom: 40px;
-        text-align: center;
-        position: relative;
-    }
-    
-    .section-title::after {
-        content: '';
-        position: absolute;
-        width: 60px;
-        height: 3px;
-        background-color: var(--secondary-color);
-        bottom: -10px;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-    
-    /* Header */
-    header {
-        padding: 20px 0;
-        position: fixed;
-        width: 100%;
-        top: 0;
-        left: 0;
-        z-index: 1000;
-        background-color: rgba(18, 18, 18, 0.9);
-    }
-    
-    nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    
-    .logo {
-        font-family: 'Outfit', sans-serif;
-        font-size: 28px;
-        font-weight: 900;
-        color: var(--secondary-color);
-    }
-    
-    .nav-links {
-        display: flex;
-        gap: 30px;
-    }
-    
-    /* Hero Section */
-    .hero {
-        height: 100vh;
-        display: flex;
-        align-items: center;
-        padding-top: 60px;
-    }
-    
-    .hero-content {
-        max-width: 700px;
-    }
-    
-    .hero h1 {
-        font-size: 50px;
-        margin-bottom: 20px;
-    }
-    
-    /* Portfolio Grid with YouTube Sizing */
-    .projects-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-        gap: 25px;
-    }
-    
-    .project-card {
-        background-color: rgba(45, 70, 185, 0.1);
-        border-radius: 10px;
-        overflow: hidden;
-        border: 1px solid rgba(45, 70, 185, 0.3);
-    }
-    .project-card {
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-.project-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0, 217, 192, 0.2);
-    border-color: var(--secondary-color);
-}
-    
-    .project-image {
-        width: 100%;
-        /* This forces the 16:9 YouTube Thumbnail ratio */
-        aspect-ratio: 16 / 9; 
-        background-color: #2a2a2a;
-        overflow: hidden;
-    }
+    .tg-floating:hover{transform:scale(1.1);}
 
-    .project-image123{
-        width:100%;
-        aspect-ratio: 4 / 4  ;
-        background-color: #0a0a0a;
-        overflow: hidden;
-        transform: none;
-    }
+    /* SCROLL REVEAL */
+    .reveal{opacity:0;transform:translateY(30px);transition:all 0.8s ease-out;}
+    .reveal.active{opacity:1;transform:translateY(0);}
 
-    .project-card :hover{
-       cursor: pointer;
-       box-shadow:20px, 10px, white;
+    /* NAV */
+    nav{
+      position:fixed;top:0;left:0;right:0;z-index:100;
+      display:flex;justify-content:space-between;align-items:center;
+      padding:1.2rem 4rem;
+      background:rgba(10,10,10,0.85);
+      backdrop-filter:blur(14px);
+      -webkit-backdrop-filter:blur(14px);
+      border-bottom:0.5px solid var(--border);
     }
+    .nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:3px;color:var(--gold);}
+    .nav-links{display:flex;gap:2.5rem;}
+    .nav-links a{color:var(--text-muted);text-decoration:none;font-size:0.85rem;letter-spacing:1.5px;text-transform:uppercase;transition:color 0.3s;}
+    .nav-links a:hover{color:var(--gold);}
+    .nav-cta{
+      background:var(--gold);color:var(--black);
+      padding:0.5rem 1.4rem;font-size:0.8rem;font-weight:600;
+      letter-spacing:1.5px;text-transform:uppercase;
+      border:none;cursor:pointer;font-family:'Outfit',sans-serif;transition:background 0.3s;
+    }
+    .nav-cta:hover{background:var(--gold-light);}
 
-    .project-image123 img {
-        width: 100%;
-        height: 100%;
-        /* This ensures images don't stretch; they fill the area like a background */
-        object-fit: cover; 
+    /* HERO */
+    .hero{
+      min-height:100vh;display:flex;align-items:center;justify-content:center;
+      position:relative;padding:6rem 4rem 4rem;text-align:center;overflow:hidden;
     }
+    .hero-bg{
+      position:absolute;inset:0;
+      background:radial-gradient(ellipse 80% 60% at 50% 40%,rgba(201,168,76,0.07) 0%,transparent 70%);
+      pointer-events:none;
+    }
+    .hero-grid{
+      position:absolute;inset:0;
+      background-image:linear-gradient(rgba(201,168,76,0.04) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(201,168,76,0.04) 1px,transparent 1px);
+      background-size:60px 60px;pointer-events:none;
+    }
+    .hero-tag{
+      display:inline-block;border:0.5px solid var(--gold-dim);
+      color:var(--gold);font-size:0.7rem;letter-spacing:3px;
+      text-transform:uppercase;padding:0.4rem 1.2rem;margin-bottom:2rem;
+    }
+    .hero h1{
+      font-family:'Bebas Neue',sans-serif;
+      font-size:clamp(3.5rem,9vw,7rem);
+      line-height:0.95;letter-spacing:2px;margin-bottom:1.5rem;
+    }
+    .hero h1 span{color:var(--gold);}
+    .hero-sub{
+      font-size:1rem;color:var(--text-muted);
+      max-width:520px;margin:0 auto 2.5rem;
+      line-height:1.7;font-weight:300;
+    }
+    .hero-actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+    .btn-primary{
+      background:var(--gold);color:var(--black);padding:0.85rem 2.2rem;
+      font-size:0.85rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;
+      border:none;cursor:pointer;font-family:'Outfit',sans-serif;transition:all 0.3s;
+    }
+    .btn-primary:hover{background:var(--gold-light);}
+    .btn-outline{
+      background:transparent;color:var(--gold);padding:0.85rem 2.2rem;
+      font-size:0.85rem;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;
+      border:1px solid var(--gold-dim);cursor:pointer;font-family:'Outfit',sans-serif;transition:all 0.3s;
+    }
+    .btn-outline:hover{border-color:var(--gold);background:rgba(201,168,76,0.06);}
+    .hero-stats{
+      display:flex;gap:3rem;justify-content:center;
+      margin-top:4rem;padding-top:3rem;
+      border-top:0.5px solid var(--border);
+      flex-wrap:wrap;
+    }
+    .stat-item{text-align:center;}
+    .stat-num{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;color:var(--gold);letter-spacing:2px;}
+    .stat-label{font-size:0.7rem;color:var(--text-muted);letter-spacing:2px;text-transform:uppercase;margin-top:0.2rem;}
 
-    .project-image img {
-        width: 100%;
-        height: 100%;
-        /* This ensures images don't stretch; they fill the area like a background */
-        object-fit: cover; 
+    /* MARQUEE */
+    .marquee-wrap{
+      overflow:hidden;
+      border-top:0.5px solid var(--border);
+      border-bottom:0.5px solid var(--border);
+      padding:1rem 0;background:var(--surface);
     }
-    
-    .project-details {
-        padding: 15px;
+    .marquee-track{display:flex;gap:3rem;animation:marquee 22s linear infinite;white-space:nowrap;}
+    .marquee-item{
+      font-family:'Bebas Neue',sans-serif;font-size:1rem;
+      letter-spacing:3px;color:var(--gold-dim);
+      display:flex;align-items:center;gap:1rem;
     }
-    
-    .project-title {
-        font-size: 18px;
-        margin-bottom: 8px;
-    }
-    
-    .tag {
-        background-color: rgba(0, 217, 192, 0.1);
-        color: var(--secondary-color);
-        padding: 2px 10px;
-        border-radius: 50px;
-        font-size: 11px;
-    }
+    .marquee-dot{width:4px;height:4px;background:var(--gold-dim);border-radius:50%;display:inline-block;}
+    @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
-    /* Standard Contact Styles */
-    .form-control {
-        width: 100%;
-        padding: 10px;
-        background-color: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 5px;
-        color: var(--light-color);
-        margin-bottom: 15px;
-    }
-    
-    footer {
-        padding: 40px 0;
-        text-align: center;
-        background: #0a0a0a;
-    }
+    /* SECTIONS */
+    section{padding:6rem 4rem;}
+    .section-tag{font-size:0.7rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:0.8rem;}
+    .section-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,5vw,3.5rem);letter-spacing:2px;margin-bottom:1rem;}
+    .section-title span{color:var(--gold);}
+    .section-sub{color:var(--text-muted);font-size:0.95rem;max-width:480px;line-height:1.7;font-weight:300;}
 
-    @media (max-width: 768px) {
-        .nav-links { display: none; }
-        .hero h1 { font-size: 35px; }
+    /* SERVICES */
+    .services{background:var(--surface);}
+    .services-grid{
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:1px;margin-top:3.5rem;border:1px solid var(--border);
     }
-</style>
+    .service-card{background:var(--surface2);padding:2.5rem 2rem;border-right:1px solid var(--border);transition:background 0.3s;}
+    .service-card:last-child{border-right:none;}
+    .service-card:hover{background:var(--surface3);}
+    .service-icon{font-size:1.8rem;margin-bottom:1.5rem;}
+    .service-name{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:2px;margin-bottom:0.8rem;color:var(--text);}
+    .service-desc{font-size:0.85rem;color:var(--text-muted);line-height:1.7;font-weight:300;}
+    .service-price{margin-top:1.5rem;font-size:0.75rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);}
+
+    /* PORTFOLIO */
+    .portfolio-filters{display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:3rem;}
+    .filter-btn{
+      background:transparent;border:0.5px solid var(--border);
+      color:var(--text-muted);padding:0.4rem 1.2rem;
+      font-size:0.75rem;letter-spacing:1.5px;text-transform:uppercase;
+      cursor:pointer;font-family:'Outfit',sans-serif;transition:all 0.3s;
+    }
+    .filter-btn.active,.filter-btn:hover{border-color:var(--gold);color:var(--gold);background:rgba(201,168,76,0.06);}
+    .portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;}
+    .port-item{position:relative;aspect-ratio:16/9;overflow:hidden;background:var(--surface2);cursor:pointer;}
+    .port-item img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s;}
+    .port-item:hover img{transform:scale(1.06);}
+    .port-overlay{
+      position:absolute;inset:0;
+      background:linear-gradient(to top,rgba(0,0,0,0.9) 0%,transparent 55%);
+      opacity:0;transition:opacity 0.3s;
+      display:flex;flex-direction:column;justify-content:flex-end;padding:1.2rem;
+    }
+    .port-item:hover .port-overlay{opacity:1;}
+    .port-client{font-size:0.65rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:0.3rem;}
+    .port-title{font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:1px;color:var(--text);}
+
+    /* PROMO GRID — square ratio */
+    .promo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;}
+    .promo-item{position:relative;aspect-ratio:1/1;overflow:hidden;background:var(--surface2);cursor:pointer;}
+    .promo-item img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s;}
+    .promo-item:hover img{transform:scale(1.06);}
+    .promo-item .port-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.9) 0%,transparent 55%);opacity:0;transition:opacity 0.3s;display:flex;flex-direction:column;justify-content:flex-end;padding:1.2rem;}
+    .promo-item:hover .port-overlay{opacity:1;}
+
+    /* ABOUT */
+    .about{background:var(--surface);}
+    .about-inner{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+    .about-frame{
+      border:1px solid var(--border);padding:3rem;
+      background:var(--surface2);position:relative;
+    }
+    .about-frame::before{
+      content:'';position:absolute;
+      top:-8px;left:-8px;right:8px;bottom:8px;
+      border:1px solid var(--gold-dim);z-index:-1;
+    }
+    .about-name{font-family:'Bebas Neue',sans-serif;font-size:3rem;letter-spacing:3px;color:var(--gold);line-height:1;}
+    .about-role{font-size:0.75rem;letter-spacing:3px;text-transform:uppercase;color:var(--text-muted);margin-top:0.5rem;}
+    .about-divider{width:40px;height:1px;background:var(--gold-dim);margin:1.5rem 0;}
+    .about-brand{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:3px;color:var(--gold-dim);}
+    .about-text{font-size:0.95rem;color:var(--text-muted);line-height:1.8;font-weight:300;margin-bottom:1.2rem;}
+    .skills-list{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1.5rem;}
+    .skill-tag{border:0.5px solid var(--border);color:var(--text-muted);font-size:0.7rem;letter-spacing:1.5px;text-transform:uppercase;padding:0.35rem 0.9rem;}
+
+    /* PROCESS */
+    .process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:3.5rem;position:relative;}
+    .process-steps::before{
+      content:'';position:absolute;
+      top:1.5rem;left:12.5%;right:12.5%;
+      height:0.5px;background:var(--border);
+    }
+    .process-step{text-align:center;padding:0 1rem;}
+    .step-num{
+      width:3rem;height:3rem;border:0.5px solid var(--gold-dim);
+      display:flex;align-items:center;justify-content:center;
+      margin:0 auto 1.5rem;font-family:'Bebas Neue',sans-serif;
+      font-size:1.1rem;color:var(--gold);background:var(--black);position:relative;z-index:1;
+    }
+    .step-title{font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:2px;margin-bottom:0.5rem;}
+    .step-desc{font-size:0.8rem;color:var(--text-muted);line-height:1.6;font-weight:300;}
+
+    /* CONTACT */
+    .contact{background:var(--surface);}
+    .contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:5rem;}
+    .contact-info{display:flex;flex-direction:column;gap:2rem;margin-top:2rem;}
+    .contact-item{display:flex;align-items:flex-start;gap:1rem;}
+    .contact-icon{
+      width:2.5rem;height:2.5rem;border:0.5px solid var(--gold-dim);
+      display:flex;align-items:center;justify-content:center;
+      color:var(--gold);font-size:1rem;flex-shrink:0;
+    }
+    .contact-label{font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.3rem;}
+    .contact-val{font-size:0.9rem;color:var(--text);}
+
+    /* FORM */
+    .contact-form{display:flex;flex-direction:column;gap:0.9rem;margin-top:2rem;}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+    .form-label{font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.35rem;display:block;}
+    .form-input{
+      width:100%;
+      background:var(--surface2);border:0.5px solid var(--border);
+      color:var(--text);padding:0.8rem 1rem;
+      font-size:0.9rem;font-family:'Outfit',sans-serif;
+      outline:none;transition:border-color 0.3s;
+    }
+    .form-input:focus{border-color:var(--gold-dim);}
+    .form-input::placeholder{color:var(--text-muted);opacity:0.5;}
+    textarea.form-input{resize:vertical;min-height:110px;}
+    select.form-input option{background:#1a1a1a;}
+
+    /* SUBMIT STATES */
+    #submit-btn{
+      width:100%;padding:1rem;
+      background:var(--gold);color:var(--black);
+      font-size:0.85rem;font-weight:600;
+      letter-spacing:1.5px;text-transform:uppercase;
+      border:none;cursor:pointer;
+      font-family:'Outfit',sans-serif;transition:all 0.3s;
+      margin-top:0.5rem;
+    }
+    #submit-btn:hover:not(:disabled){background:var(--gold-light);}
+    #submit-btn:disabled{opacity:0.6;cursor:not-allowed;}
+    .form-success{
+      display:none;text-align:center;padding:2rem;
+      border:0.5px solid var(--gold-dim);background:rgba(201,168,76,0.05);
+    }
+    .form-success .success-icon{font-size:2.5rem;margin-bottom:1rem;}
+    .form-success h3{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:2px;color:var(--gold);margin-bottom:0.5rem;}
+    .form-success p{font-size:0.85rem;color:var(--text-muted);}
+
+    /* FOOTER */
+    footer{
+      padding:2rem 4rem;border-top:0.5px solid var(--border);
+      display:flex;justify-content:space-between;align-items:center;
+      background:#0a0a0a;
+    }
+    .footer-logo{font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:3px;color:var(--gold);}
+    .footer-copy{font-size:0.75rem;color:var(--text-muted);}
+
+    /* RESPONSIVE */
+    @media(max-width:900px){
+      nav{padding:1rem 1.5rem;}
+      .nav-links{display:none;}
+      section{padding:4rem 1.5rem;}
+      .hero{padding:5rem 1.5rem 3rem;}
+      .hero-stats{gap:1.5rem;}
+      .portfolio-grid,.promo-grid{grid-template-columns:repeat(2,1fr);}
+      .about-inner,.contact-inner{grid-template-columns:1fr;}
+      .process-steps{grid-template-columns:repeat(2,1fr);}
+      .process-steps::before{display:none;}
+      .form-row{grid-template-columns:1fr;}
+      footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem;}
+    }
+    @media(max-width:480px){
+      .portfolio-grid,.promo-grid{grid-template-columns:1fr;}
+      .hero h1{font-size:3rem;}
+      .hero-stats{gap:1rem;}
+      .stat-num{font-size:1.6rem;}
+    }
+  </style>
 </head>
 <body>
 
-<header>
-    <div class="container">
-        <nav>
-            <div class="logo">JESH</div>
-            <div class="nav-links">
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#projects">Portfolio</a>
-                <a href="#contact">Contact</a>
-            </div>
-        </nav>
-    </div>
-</header>
+<!-- FLOATING TELEGRAM -->
+<a href="https://t.me/Yishrun" target="_blank" class="tg-floating" title="Message on Telegram">
+  <i class="fab fa-telegram-plane"></i>
+</a>
 
-<section id="home" class="hero">
-    <div class="container">
-        <div class="hero-content">
-            <div class="hero-subtitle highlight">Graphic & Thumbnail Designer</div>
-            <h1>High-Impact <span class="highlight">Visuals</span> for Creators</h1>
-            <p>Optimized YouTube thumbnails and professional branding designed to drive engagement.</p>
-        </div>
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">JESH</div>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#portfolio">Work</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Hire Me</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero reveal" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div style="position:relative;z-index:1;">
+    <div class="hero-tag">
+      <i class="fas fa-circle" style="font-size:7px;margin-right:6px;"></i>Available for Projects
     </div>
+    <h1>THUMBNAILS<br>THAT <span>DEMAND</span><br>THE CLICK</h1>
+    <p class="hero-sub">High-converting YouTube thumbnails and video branding for creators who refuse to be ignored. Based in Ethiopia. Working worldwide.</p>
+    <div class="hero-actions">
+      <button class="btn-primary" onclick="document.getElementById('portfolio').scrollIntoView({behavior:'smooth'})">View My Work</button>
+      <button class="btn-outline" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Start a Project</button>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item"><div class="stat-num">6+</div><div class="stat-label">Clients Served</div></div>
+      <div class="stat-item"><div class="stat-num">25+</div><div class="stat-label">Thumbnails Delivered</div></div>
+      <div class="stat-item"><div class="stat-num">48H</div><div class="stat-label">Avg Turnaround</div></div>
+      <div class="stat-item"><div class="stat-num">100%</div><div class="stat-label">Satisfaction</div></div>
+    </div>
+  </div>
 </section>
 
-</div></section><section id="about" class="section">
-    <div class="container">
-        <h2 class="section-title">About <span class="highlight">Me</span></h2>
-        <div class="about-content">
-            <div class="about-image">
-                
-            </div>
-            <div class="about-text">
-                <h3>Graphic & <span class="highlight">Thumbnail Designer</span></h3>
-                <p>hey i am jesh and I'm a designer with a passion for creating visually appealing and high-converting digital artwork. My journey began with a fascination for  branding, and visual storytelling.</p>
-                <p>With a strong foundation in visual layout and an eye for design, I specialize in creating graphics that are not only eye-catching but also drive clicks and engagement.</p>
-                <p>When I'm not designing, you can find me exploring new design trends and analyzing engagement strategies.</p>
-            </div>
-        </div>
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="marquee-item">YouTube Thumbnails<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Video Editing<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Brand Identity<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Social Media Graphics<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Channel Branding<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Promotional Design<span class="marquee-dot"></span></span>
+    <span class="marquee-item">YouTube Thumbnails<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Video Editing<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Brand Identity<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Social Media Graphics<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Channel Branding<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Promotional Design<span class="marquee-dot"></span></span>
+  </div>
+</div>
 
-<section id="projects" class="section">
-    <div class="container">
-        <h2 class="section-title">My <span class="highlight">Portfolio</span></h2>
-        <div class="projects-grid">
-            
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="work/6 ወር crf.png" alt="Thumbnail 1">
-                </div>
-                <div class="project-details">
-                    <h3 class="project-title">YouTube Thumbnail for  ETHIO-COMPUTER-SCHOOL</h3>
-                    <span class="tag">CTR THUMBNAIL</span>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="work/guzo green coast crf.jpg" alt="Thumbnail 2">
-                </div>
-                <div class="project-details">
-                    <h3 class="project-title">YouTube Thumbnail for BACKEYS-TRAVEL</h3>
-                    <span class="tag">CTR THUMBNAIL</span>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-image"><img src="work/mekfel gemere crf.png" alt="Work"></div>
-                <div class="project-details"><h3 class="project-title">YouTube Thumbnail for ETHIO-COMPUTER-SCHOOL</h3><span class="tag">CTR THUMBNAIL</span></div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-image"><img src="work/feril thumb 1 crf 2.png" alt="Work"></div>
-                <div class="project-details"><h3 class="project-title">YouTube Thumbnail for FERIL-MAD-WORLD</h3><span class="tag">CTR THUMBNAIL</span></div>
-            </div>
-
-            <div class="project-card">t
-                <div class="project-image"><img src="work/lela tikusat crf.png" alt="Work"></div>
-                <div class="project-details"><h3 class="project-title">PODCAST-thumbnail</h3><span class="tag">CTR THUMBNAIL</span></div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-image"><img src="work/FERIL.png" alt="Work"></div>
-                <div class="project-details"><h3 class="project-title">YouTube Thumbnail for FERIL-MAD-WORLD</h3><span class="tag">CTR THUMBNAIL</span></div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-image"><img src="work/2nd feril project sttg crf.jpg" alt="Work"></div>
-                <div class="project-details"><h3 class="project-title">YouTube Thumbnail for FERIL-MAD-WORLD</h3><span class="tag">CTR THUMBNAIL</span></div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-image"><img src="work/tegbarhiwotblur new.png" alt="Work"></div>
-                <div class="project-details"><h3 class="project-title">YouTube Thumbnail for ALATU-LAY channel</h3><span class="tag">CTR THUMBNAIL</span></div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-image"><img src="work/final food challenge thumbnail crf.jpg" alt="Work"></div>
-                <div class="project-details"><h3 class="project-title">YouTube Thumbnail for FERIL-MAD-WORLD</h3><span class="tag">CTR THUMBNAIL</span></div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-image"><img src="work/mehal sefari 33.png" alt="Work"></div>
-                <div class="project-details"><h3 class="project-title">YouTube Thumbnail for ALATU-LAY channel</h3><span class="tag">CTR THUMBNAIL</span></div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-image"><img src="work/temari work crf.png" alt="Work"></div>
-                <div class="project-details"><h3 class="project-title">youTube Thumbnail YONAS-MOH</h3><span class="tag">CTR THUMBNAIL</span></div>
-            </div>
-
-             <div class="project-card">
-                <div class="project-image"><img src="work/IMG_20251130_103434_918.png" alt="Work"></div>
-                <div class="project-details"><h3 class="project-title">youTube Thumbnail for ALATU-lay channel</h3><span class="tag">CTR THUMBNAIL</span></div>
-            </div>
-
-             <div class="project-card">
-                <div class="project-image"><img src="work/DELALA 2.jpg" alt="Work"></div>
-                <div class="project-details"><h3 class="project-title">youTube Thumbnail for HUHU-MEDIA</h3><span class="tag">CTR THUMBNAIL</span></div>
-            </div>
-
-             <div class="project-card">
-                <div class="project-image"><img src="work/ናቲ thum.jpg" alt="Work"></div>
-                <div class="project-details"><h3 class="project-title">youTube Thumbnail for NATI</h3><span class="tag">CTR THUMBNAIL</span></div>
-            </div>
-
-             <div class="project-card">
-                <div class="project-image"><img src="work/moh 1.jpg" alt="Work"></div>
-                <div class="project-details"><h3 class="project-title">youTube Thumbnail for YONAS MOH</h3><span class="tag">CTR THUMBNAIL</span></div>
-            </div>
-
-             <div class="project-card">
-                <div class="project-image"><img src="work/jara ad.png" alt="Work"></div>
-                <div class="project-details"><h3 class="project-title">PODCAST Thumbnail for JARA AND JERUKA</h3><span class="tag">CTR THUMBNAIL</span></div>
-            </div>
-
-             <div class="project-card">
-                <div class="project-image"><img src="work/donald fin.jpg" alt="Work"></div>
-                <div class="project-details"><h3 class="project-title">BUSINESS Thumbnail</h3><span class="tag">CTR THUMBNAIL</span></div>
-            </div>
-
-             <div class="project-card">
-                <div class="project-image"><img src="work/battle.jpg" alt="Work"></div>
-                <div class="project-details"><h3 class="project-title">BOXING-Thumbnail </h3><span class="tag">CTR THUMBNAIL</span></div>
-            </div>
-
-             <div class="project-card">
-                <div class="project-image"><img src="work/big 1.jpg" alt="Work"></div>
-                <div class="project-details"><h3 class="project-title">youTube Thumbnail for BIG-HABESHA</h3><span class="tag">CTR THUMBNAIL</span></div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-image"><img src="work/tidar 3.jpg" alt="Work"></div>
-                <div class="project-details"><h3 class="project-title">youTube Thumbnail for alatu lay channel</h3><span class="tag">CTR THUMBNAIL</span></div>
-            </div>
-
-              <div class="project-card">
-                <div class="project-image"><img src="work/china.jpg" alt="Work"></div>
-                <div class="project-details"><h3 class="project-title">NEWS-Thumbnail </h3><span class="tag">CTR THUMBNAIL</span></div>
-            </div>
-
-              <div class="project-card">
-                <div class="project-image"><img src="work/yhuda 21.jpg" alt="Work"></div>
-                <div class="project-details"><h3 class="project-title">youTube Thumbnail for alatu lay channel</h3><span class="tag">CTR THUMBNAIL</span></div>
-            </div>
-
-            
-
-
-
-
-
-
-
-
-
-
-        </div>
+<!-- SERVICES -->
+<section class="services reveal" id="services">
+  <div class="section-tag">What I Offer</div>
+  <div class="section-title">SERVICES <span>BUILT</span> FOR GROWTH</div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">🎯</div>
+      <div class="service-name">CTR Thumbnails</div>
+      <div class="service-desc">High-impact YouTube thumbnails engineered to stop the scroll and force the click. color psychology, and composition strategy.</div>
+      
     </div>
+   
+    <div class="service-card">
+      <div class="service-icon">📺</div>
+      <div class="service-name">Channel Branding</div>
+      <div class="service-desc">Complete visual identity for your YouTube channel — banner,  thumbnail templates, and end screens built for recognition.</div>
+     
+    </div>
+    <div class="service-card">
+      <div class="service-icon">📣</div>
+      <div class="service-name">Promo Graphics</div>
+      <div class="service-desc">Event posters, business promotions, and social media creatives for brands and businesses that want to stand out in any feed.</div>
+     
+    </div>
+  </div>
 </section>
 
-<section id="projects" class="section">
-    <div class="container">
-        <h2 class="section-title">for  <span class="highlight">digital work</span></h2>
-        <div class="projects-grid">
-
-             <div class="project-card">
-                <div class="project-image123"><img src="work/lamberet-project.jpg" alt="Work"></div>
-                <div class="project-details"><h3 class="project-title">promotion-works</h3><span class="tag">CTR THUMBNAIL</span></div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-image123"><img src="work/salon 6.jpg" alt="Work"></div>
-                <div class="project-details"><h3 class="project-title">promotion-works</h3><span class="tag">CTR THUMBNAIL</span></div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-image123"><img src="work/YABU MENU 2.jpg" alt="Work"></div>
-                <div class="project-details"><h3 class="project-title">promotion-works</h3><span class="tag">CTR THUMBNAIL</span></div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-image123"><img src="work/dagi.jpg" alt="Work"></div>
-                <div class="project-details"><h3 class="project-title">promotion-works for podcast</h3><span class="tag">CTR THUMBNAIL</span></div>
-            </div>
-
-             <div class="project-card">
-                <div class="project-image123"><img src="work/NESHI SHOP1.jpg" alt="Work"></div>
-                <div class="project-details"><h3 class="project-title">promotion-works</h3><span class="tag">CTR THUMBNAIL</span></div>
-            </div>
-     </div>       
+<!-- PORTFOLIO — THUMBNAILS -->
+<section id="portfolio" class="reveal" style="padding:6rem 4rem;">
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:2rem;flex-wrap:wrap;gap:1rem;">
+    <div>
+      <div class="section-tag">Selected Work</div>
+      <div class="section-title">THE <span>PORTFOLIO</span></div>
+    </div>
+    <div class="portfolio-filters">
+      <button class="filter-btn active">All</button>
+      <button class="filter-btn">Thumbnails</button>
+      <button class="filter-btn">Promo</button>
+    </div>
+  </div>
+  <div class="portfolio-grid">
+    <div class="port-item"><img src="work/6 ወር crf.png" alt="Ethio Computer School"/><div class="port-overlay"><div class="port-client">Ethio Computer School</div><div class="port-title">YouTube Thumbnail</div></div></div>
+    <div class="port-item"><img src="work/guzo green coast crf.jpg" alt="Backeys Travel"/><div class="port-overlay"><div class="port-client">Backeys Travel</div><div class="port-title">YouTube Thumbnail</div></div></div>
+    <div class="port-item"><img src="work/mekfel gemere crf.png" alt="Ethio Computer School 2"/><div class="port-overlay"><div class="port-client">Ethio Computer School</div><div class="port-title">YouTube Thumbnail</div></div></div>
+    <div class="port-item"><img src="work/feril thumb 1 crf 2.png" alt="Feril Mad World"/><div class="port-overlay"><div class="port-client">Feril Mad World</div><div class="port-title">YouTube Thumbnail</div></div></div>
+    <div class="port-item"><img src="work/lela tikusat crf.png" alt="Podcast Thumbnail"/><div class="port-overlay"><div class="port-client">Podcast</div><div class="port-title">Podcast Thumbnail</div></div></div>
+    <div class="port-item"><img src="work/FERIL.png" alt="Feril Mad World 2"/><div class="port-overlay"><div class="port-client">Feril Mad World</div><div class="port-title">Series Thumbnail</div></div></div>
+    <div class="port-item"><img src="work/2nd feril project sttg crf.jpg" alt="Feril Mad World 3"/><div class="port-overlay"><div class="port-client">Feril Mad World</div><div class="port-title">YouTube Thumbnail</div></div></div>
+    <div class="port-item"><img src="work/tegbarhiwotblur new.png" alt="Alatu Lay"/><div class="port-overlay"><div class="port-client">Alatu Lay Channel</div><div class="port-title">YouTube Thumbnail</div></div></div>
+    <div class="port-item"><img src="work/final food challenge thumbnail crf.jpg" alt="Food Challenge"/><div class="port-overlay"><div class="port-client">Feril Mad World</div><div class="port-title">Food Challenge Thumbnail</div></div></div>
+    <div class="port-item"><img src="work/mehal sefari 33.png" alt="Alatu Lay 2"/><div class="port-overlay"><div class="port-client">Alatu Lay Channel</div><div class="port-title">YouTube Thumbnail</div></div></div>
+    <div class="port-item"><img src="work/temari work crf.png" alt="Yonas Moh"/><div class="port-overlay"><div class="port-client">Yonas Moh</div><div class="port-title">YouTube Thumbnail</div></div></div>
+    <div class="port-item"><img src="work/IMG_20251130_103434_918.png" alt="Alatu Lay 3"/><div class="port-overlay"><div class="port-client">Alatu Lay Channel</div><div class="port-title">YouTube Thumbnail</div></div></div>
+    <div class="port-item"><img src="work/DELALA 2.jpg" alt="Huhu Media"/><div class="port-overlay"><div class="port-client">Huhu Media</div><div class="port-title">YouTube Thumbnail</div></div></div>
+    <div class="port-item"><img src="work/ናቲ thum.jpg" alt="Nati"/><div class="port-overlay"><div class="port-client">Nati</div><div class="port-title">YouTube Thumbnail</div></div></div>
+    <div class="port-item"><img src="work/moh 1.jpg" alt="Yonas Moh 2"/><div class="port-overlay"><div class="port-client">Yonas Moh</div><div class="port-title">YouTube Thumbnail</div></div></div>
+    <div class="port-item"><img src="work/jara ad.png" alt="Jara Podcast"/><div class="port-overlay"><div class="port-client">Jara & Jeruka</div><div class="port-title">Podcast Thumbnail</div></div></div>
+    <div class="port-item"><img src="work/donald fin.jpg" alt="Business"/><div class="port-overlay"><div class="port-client">Business</div><div class="port-title">Business Thumbnail</div></div></div>
+    <div class="port-item"><img src="work/battle.jpg" alt="Boxing"/><div class="port-overlay"><div class="port-client">Sports</div><div class="port-title">Boxing Thumbnail</div></div></div>
+    <div class="port-item"><img src="work/big 1.jpg" alt="Big Habesha"/><div class="port-overlay"><div class="port-client">Big Habesha</div><div class="port-title">YouTube Thumbnail</div></div></div>
+    <div class="port-item"><img src="work/tidar 3.jpg" alt="Alatu Lay 4"/><div class="port-overlay"><div class="port-client">Alatu Lay Channel</div><div class="port-title">YouTube Thumbnail</div></div></div>
+    <div class="port-item"><img src="work/china.jpg" alt="News"/><div class="port-overlay"><div class="port-client">News</div><div class="port-title">News Thumbnail</div></div></div>
+    <div class="port-item"><img src="work/yhuda 21.jpg" alt="Alatu Lay 5"/><div class="port-overlay"><div class="port-client">Alatu Lay Channel</div><div class="port-title">YouTube Thumbnail</div></div></div>
+  </div>
 </section>
-</div></section><section id="contact" class="section">
-    <div class="container">
-        <h2 class="section-title">Get In <span class="highlight">Touch</span></h2>
-        <div class="contact-container">
-            <div class="contact-info">
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <div class="contact-details">
-                        <h3>Email</h3>
-                        <a href="mailto:jesh@example.com">yishrunlegesse@gmail.com</a>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fas fa-phone-alt"></i>
-                    </div>
-                    <div class="contact-details">
-                        <h3>Phone</h3>
-                        <p>+251975335963</p>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fas fa-map-marker-alt"></i>
-                    </div>
-                    <div class="contact-details">
-                        <h3>Location</h3>
-                        <p>addis abeba, ethiopia</p>
-                    </div>
-                </div>
-            </div>
 
-<section id="contact" class="section">
-    <div class="container">
-        <h2 class="section-title">Let's <span class="highlight">Work</span></h2>
-        <form id="contact-form" style="max-width: 600px; margin: 0 auto;" action="https://formspree.io/f/maqalkzz" method="POST">
-            
-           <input type="hidden" name="_next" value="https://Yishrun286.github.io/MY-PORTFOLIO/thankyou.html">
+<!-- PORTFOLIO — PROMO / DIGITAL WORK -->
+<section id="promo" class="reveal" style="padding:0 4rem 6rem;">
+  <div style="margin-bottom:2rem;">
+    <div class="section-tag">Digital & Promo</div>
+    <div class="section-title">PROMOTION <span>WORK</span></div>
+  </div>
+  <div class="promo-grid">
+    <div class="promo-item"><img src="work/lamberet-project.jpg" alt="Lamberet Project"/><div class="port-overlay"><div class="port-client">Brand Promotion</div><div class="port-title">Promotional Design</div></div></div>
+    <div class="promo-item"><img src="work/salon 6.jpg" alt="Salon"/><div class="port-overlay"><div class="port-client">Salon</div><div class="port-title">Promotional Design</div></div></div>
+    <div class="promo-item"><img src="work/YABU MENU 2.jpg" alt="Yabu Menu"/><div class="port-overlay"><div class="port-client">Yabu</div><div class="port-title">Menu Design</div></div></div>
+    <div class="promo-item"><img src="work/dagi.jpg" alt="Dagi Podcast"/><div class="port-overlay"><div class="port-client">Podcast</div><div class="port-title">Promo Graphic</div></div></div>
+    <div class="promo-item"><img src="work/NESHI SHOP1.jpg" alt="Neshi Shop"/><div class="port-overlay"><div class="port-client">Neshi Shop</div><div class="port-title">Promotional Design</div></div></div>
+  </div>
+</section>
 
-           <input type="hidden" name="_subject" value="New Portfolio Message!">
+<!-- ABOUT -->
+<section class="about reveal" id="about">
+  <div class="about-inner">
+    <div>
+      <div class="about-frame">
+        <div class="about-name">YISHRUN<br>LEGESSE</div>
+        <div class="about-role">Graphic Designer (specialliy on thumbnail)</div>
+        <div style="font-size:0.8rem;color:var(--text-muted);margin-top:0.8rem;display:flex;align-items:center;gap:0.5rem;">
+          <i class="fas fa-map-marker-alt" style="color:var(--gold);font-size:0.75rem;"></i> Ethiopia — Working Worldwide
+        </div>
+        <div class="about-divider"></div>
+        <div class="about-brand">JESH PROJECTS</div>
+        <div class="about-divider"></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+          <div><div style="font-size:0.65rem;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);">Speciality</div><div style="font-size:0.85rem;margin-top:0.3rem;">YouTube Thumbnails</div></div>
+          <div><div style="font-size:0.65rem;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);">Tools</div><div style="font-size:0.85rem;margin-top:0.3rem;">Adobe photoshop</div></div>
+          <div><div style="font-size:0.65rem;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);">Turnaround</div><div style="font-size:0.85rem;margin-top:0.3rem;">48 Hours</div></div>
+          <div><div style="font-size:0.65rem;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);">Languages</div><div style="font-size:0.85rem;margin-top:0.3rem;">EN / አማርኛ</div></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="section-tag">About Me</div>
+      <div class="section-title">THE DESIGNER<br>BEHIND <span>JESH</span></div>
+      <p class="about-text">I'm Yishrun Legesse — a graphic designer and Software Engineering student based in Ethiopia. I founded Jesh Projects to bring high-end visual storytelling to YouTube creators and Ethiopian businesses who want their brand to command attention.</p>
+      <p class="about-text">My work sits at the intersection of data-driven design and cinematic aesthetics. Every thumbnail I build is engineered to convert — not just look good. I understand creator psychology, viewer behavior, and what makes someone stop scrolling and click.</p>
+      <p class="about-text">What sets me apart: I combine design instincts with technical coding skills. I don't just make things look good — I make them perform.</p>
+      <div class="skills-list">
+        <span class="skill-tag">Adobe photoshop</span>
+        
+        
+        <span class="skill-tag">Brand Strategy</span>
+        
+        <span class="skill-tag">CTR Optimization</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-            <input type="text" name="name" class="form-control" placeholder="Name" required>
-            
-            <input type="email" name="email" class="form-control" placeholder="Email" required>
-            
-            <textarea name="message" class="form-control" rows="5" placeholder="Your Project Details" required></textarea>
-            
-           <button type="submit" id="submit-btn" class="btn">Send Request</button>
-        </form>
+<!-- PROCESS -->
+<section class="reveal" style="padding:6rem 4rem;">
+  <div style="text-align:center;max-width:500px;margin:0 auto 1rem;">
+    <div class="section-tag">How It Works</div>
+    <div class="section-title">THE <span>PROCESS</span></div>
+  </div>
+  <div class="process-steps">
+    <div class="process-step"><div class="step-num">01</div><div class="step-title">Brief</div><div class="step-desc">Share your design, channel niche, and reference styles. The clearer the brief, the sharper the result.</div></div>
+    <div class="process-step"><div class="step-num">02</div><div class="step-title">Concept</div><div class="step-desc">I develop the composition strategy — layout, color psychology — tuned for your audience.</div></div>
+    <div class="process-step"><div class="step-num">03</div><div class="step-title">Design</div><div class="step-desc">Delivered within 48 hours. High-resolution, export-ready files in all formats you need.</div></div>
+    <div class="process-step"><div class="step-num">04</div><div class="step-title">Refine</div><div class="step-desc">Two rounds of revisions included. We don't stop until you're confident it will perform.</div></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact reveal" id="contact">
+  <div class="contact-inner">
+    <div>
+      <div class="section-tag">Get In Touch</div>
+      <div class="section-title">LET'S BUILD<br>SOMETHING <span>GREAT</span></div>
+      <p class="section-sub">Ready to grow your channel? I take on a limited number of projects each month to ensure every client gets my full attention.</p>
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+          <div><div class="contact-label">Email</div><div class="contact-val">yishrunlegesse@gmail.com</div></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+          <div><div class="contact-label">Phone / WhatsApp</div><div class="contact-val">+251 975 335 963</div></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fab fa-telegram-plane"></i></div>
+          <div><div class="contact-label">Telegram</div><div class="contact-val">@Yishrun</div></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div><div class="contact-label">Location</div><div class="contact-val">Ethiopia — Remote Worldwide</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FORM WITH FORMSPREE -->
+    <div>
+      <div class="section-tag" style="margin-top:2rem;">Send a Request</div>
+
+      <form id="contact-form" class="contact-form" action="https://formspree.io/f/mnjwzdbg" method="POST">
+        <input type="hidden" name="_subject" value="New Project Request — Jesh Projects Portfolio"/>
+
+        <div class="form-row">
+          <div>
+            <label class="form-label">Name</label>
+            <input type="text" name="name" class="form-input" placeholder="Your name" required/>
+          </div>
+          <div>
+            <label class="form-label">Email</label>
+            <input type="email" name="email" class="form-input" placeholder="your@email.com" required/>
+          </div>
+        </div>
+
+        <div>
+          <label class="form-label">Service</label>
+          <select name="service" class="form-input">
+            <option value="">Select a service</option>
+            <option>YouTube Thumbnail</option>
+            <option>Video Editing</option>
+            <option>Channel Branding Package</option>
+            <option>Promotional Design</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="form-label">Message</label>
+          <textarea name="message" class="form-input" placeholder="Tell me about your project, channel niche, and deadline..." required></textarea>
+        </div>
+
+        <button type="submit" id="submit-btn" class="btn-primary">Send Request →</button>
+      </form>
+
+      <!-- SUCCESS MESSAGE (hidden by default) -->
+      <div class="form-success" id="form-success">
+        <div class="success-icon">✅</div>
+        <h3>Message Sent!</h3>
+        <p>Thank you for reaching out. I'll reply within 24 hours.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">JESH PROJECTS</div>
+  <div class="footer-copy">© 2026 Jesh Projects — Ethiopia. All Rights Reserved.</div>
+</footer>
+
+<!-- SCRIPTS -->
 <script>
-  const contactForm = document.getElementById('contact-form');
-  const submitBtn = document.getElementById('submit-btn');
+  /* FORMSPREE SUBMIT */
+  const form = document.getElementById('contact-form');
+  const btn = document.getElementById('submit-btn');
+  const successBox = document.getElementById('form-success');
 
-  contactForm.addEventListener('submit', function(e) {
-    e.preventDefault(); 
-    submitBtn.innerText = "Sending...";
-    submitBtn.disabled = true;
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    btn.innerText = 'Sending...';
+    btn.disabled = true;
 
-    const data = new FormData(contactForm);
+    const data = new FormData(form);
 
-    fetch(contactForm.action, {
+    fetch(form.action, {
       method: 'POST',
       body: data,
-      headers: {
-        'Accept': 'application/json'
-      }
-    }).then(response => {
+      headers: { 'Accept': 'application/json' }
+    })
+    .then(response => {
       if (response.ok) {
-        
-        window.location.href = "https://yishrun286.github.io/MY-PORTFOLIO/thankyou.html";
+        form.style.display = 'none';
+        successBox.style.display = 'block';
       } else {
-        alert("Oops! There was a problem submitting your form");
-        submitBtn.disabled = false;
-        submitBtn.innerText = "Send Message";
+        alert('Oops! Something went wrong. Please email me directly at yishrunlegesse@gmail.com');
+        btn.disabled = false;
+        btn.innerText = 'Send Request →';
       }
-    }).catch(error => {
-      alert("Error: " + error);
-      submitBtn.disabled = false;
-      submitBtn.innerText = "Send Message";
+    })
+    .catch(() => {
+      alert('Network error. Please try again or email me directly.');
+      btn.disabled = false;
+      btn.innerText = 'Send Request →';
+    });
+  });
+
+  /* SCROLL REVEAL */
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+
+  /* FILTER BUTTONS (visual only) */
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
     });
   });
 </script>
 
-
-    </div>
-</section>
-
-
-<footer>
-    <p>&copy; 2026 Jesh Projects. All Rights Reserved.</p>
-</footer>
-
 </body>
 </html>
+
+
+
+
+
+  
